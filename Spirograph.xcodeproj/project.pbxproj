@@ -14,6 +14,7 @@
 		439FDE5B1D1F565400E54B4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 439FDE591D1F565400E54B4F /* LaunchScreen.storyboard */; };
 		439FDE661D1F565400E54B4F /* SpirographTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439FDE651D1F565400E54B4F /* SpirographTests.swift */; };
 		439FDE711D1F565400E54B4F /* SpirographUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439FDE701D1F565400E54B4F /* SpirographUITests.swift */; };
+		439FDE7F1D1F622600E54B4F /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439FDE7E1D1F622600E54B4F /* CircleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		439FDE6C1D1F565400E54B4F /* SpirographUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpirographUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		439FDE701D1F565400E54B4F /* SpirographUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpirographUITests.swift; sourceTree = "<group>"; };
 		439FDE721D1F565400E54B4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		439FDE7E1D1F622600E54B4F /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				439FDE571D1F565400E54B4F /* Assets.xcassets */,
 				439FDE591D1F565400E54B4F /* LaunchScreen.storyboard */,
 				439FDE5C1D1F565400E54B4F /* Info.plist */,
+				439FDE7E1D1F622600E54B4F /* CircleView.swift */,
 			);
 			path = Spirograph;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				439FDE7F1D1F622600E54B4F /* CircleView.swift in Sources */,
 				439FDE531D1F565400E54B4F /* ViewController.swift in Sources */,
 				439FDE511D1F565400E54B4F /* AppDelegate.swift in Sources */,
 			);
@@ -484,6 +488,7 @@
 				439FDE771D1F565400E54B4F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		439FDE781D1F565400E54B4F /* Build configuration list for PBXNativeTarget "SpirographTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +497,7 @@
 				439FDE7A1D1F565400E54B4F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		439FDE7B1D1F565400E54B4F /* Build configuration list for PBXNativeTarget "SpirographUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +506,7 @@
 				439FDE7D1D1F565400E54B4F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
