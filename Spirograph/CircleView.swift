@@ -14,19 +14,17 @@ class CircleView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.clearColor()
-        self.setupCALayer(UIColor.clearColor())
-        
+        self.setupCALayer(nil/*UIColor.clearColor()*/)
         
     }
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
-        self.setupCALayer(UIColor.clearColor())
-        
+        self.setupCALayer(nil/*UIColor.clearColor()*/)
     }
-    
+
     override func prepareForInterfaceBuilder() {
-        self.setupCALayer(UIColor.clearColor())
+        self.setupCALayer(nil/*UIColor.clearColor()*/)
     }
     
     
@@ -47,8 +45,11 @@ class CircleView: UIView {
     CGContextStrokePath(context);
     }
     
-    func setupCALayer(color : UIColor ) -> Void {
-        self.backgroundColor = color
+    func setupCALayer(color : UIColor? ) -> Void {
+        if let backgroundPaint = color {
+            self.backgroundColor = backgroundPaint
+        }
+
         
         // Use UIBezierPath as an easy way to create the CGPath for the layer.
         // The path should be the entire circle.
