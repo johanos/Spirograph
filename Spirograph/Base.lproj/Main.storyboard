@@ -69,6 +69,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Isr-n7-mJu">
                                         <rect key="frame" x="0.0" y="0.0" width="182.5" height="30"/>
                                         <state key="normal" title="Start"/>
+                                        <connections>
+                                            <action selector="startButtonWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="61p-iz-Eng"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbu-oV-HQA">
                                         <rect key="frame" x="217.5" y="0.0" width="182.5" height="30"/>
@@ -107,6 +110,8 @@
                         <outlet property="sliderLabel" destination="W8g-Th-XjL" id="MfO-tr-HcO"/>
                         <outlet property="smallGear" destination="qup-94-p1m" id="UMY-jb-NhR"/>
                         <outlet property="startButton" destination="Isr-n7-mJu" id="8wY-FS-vXz"/>
+                        <outlet property="xConstraintSmallGear" destination="ub5-dK-KOw" id="XOj-Mp-x24"/>
+                        <outlet property="yContraintSmallGear" destination="lQr-Kf-vSN" id="98p-MY-94e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
