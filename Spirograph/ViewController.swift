@@ -15,22 +15,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var smallGear: CircleView!
-    @IBOutlet weak var bigGear: CircleView!
+    @IBOutlet weak var smallGearContainer: UIView!
     @IBOutlet weak var sliderLabel: UILabel!
-    @IBOutlet weak var xConstraintSmallGear: NSLayoutConstraint!
-    @IBOutlet weak var yContraintSmallGear: NSLayoutConstraint!
+    @IBOutlet weak var slider: UISlider!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-
-        //need to calculate the rotation point for the smaller view 
-        let rotationPoint = CGPointMake( bigGear.frame.midX , bigGear.frame.midY)
-
-        removeAllConstraintsFromView(smallGear)
-        changeAnchorPointOfView(smallGear, superView: bigGear, rotationPoint: rotationPoint)
-        //runSpinAnimationOnView(smallGear, duration: 10.0, rotations: 1, repetitions: 1)
-    }
+        
+        slider.maximumValue = Float(smallGearContainer.bounds.size.width / 2)
+        
+     }
     override func viewDidAppear(animated: Bool) {
 
     }
@@ -40,6 +36,16 @@ class ViewController: UIViewController {
     }
     @IBAction func sliderValueChanged(sender: UISlider) {
         self.sliderLabel.text = "Value: " + String(sender.value)
+        
+        var oldCenter = smallGear.center
+        smallGear.frame = CGRectMake(smallGear.frame.minX, smallGear.frame.minY, CGFloat(sender.value), CGFloat(sender.value))
+    
+        let delta = oldCenter.x - smallGear.center.x;
+        oldCenter = CGPoint( x: oldCenter.x + delta, y: oldCenter.y);
+        smallGear.center = oldCenter;
+        smallGear.setNeedsUpdateConstraints();
+        smallGear.setNeedsDisplay();
+        
     }
 
 
@@ -54,11 +60,12 @@ class ViewController: UIViewController {
     }
 
     @IBAction func startButtonWasPressed(sender: AnyObject) {
-        runSpinAnimationOnView(smallGear, duration: 10.0, rotations: 1, repetitions: 1)
+        runSpinAnimationOnView(smallGearContainer, duration: 10.0, rotations: 1, repetitions: 1)
     }
 
     func changeAnchorPointOfView(view : UIView , superView : UIView? , rotationPoint : CGPoint)
     {
+        let oldFrame = view.frame
         let minX   = CGRectGetMinX(view.frame)
         let minY   = CGRectGetMinY(view.frame)
         let width  = CGRectGetWidth(view.frame)
@@ -66,14 +73,10 @@ class ViewController: UIViewController {
         let anchorPointX = ((rotationPoint.x - minX) / width)
         let anchorPointY = ((rotationPoint.y - minY) / heigth)
 
-        let anchorPoint = CGPointMake( 0.0 , 0.5 )
+        let anchorPoint = CGPointMake( anchorPointX , anchorPointY )
 
         view.layer.anchorPoint = anchorPoint
-        view.layer.position    =  CGPoint(x: superView!.frame.midX, y: superView!.frame.midY)
-        //view.frame = CGRectMake(superView!.frame.origin.y, superView!.frame.origin.x , view.frame.width, view.frame.height)
-
-       // view.setNeedsUpdateConstraints()
-       // view.setNeedsDisplay()
+        view.layer.frame = oldFrame
     }
 
     func removeAllConstraintsFromView(view :UIView){

@@ -10,21 +10,22 @@ import UIKit
 
 class CircleView: UIView {
     var circleLayer : CAShapeLayer!
+    var backgroundColorPreset: UIColor? = UIColor.clearColor()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.clearColor()
-        self.setupCALayer(nil/*UIColor.clearColor()*/)
+        self.setupCALayer(backgroundColorPreset)
         
     }
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
-        self.setupCALayer(nil/*UIColor.clearColor()*/)
+        self.setupCALayer(backgroundColorPreset)
     }
 
     override func prepareForInterfaceBuilder() {
-        self.setupCALayer(nil/*UIColor.clearColor()*/)
+        self.setupCALayer(backgroundColorPreset)
     }
     
     
