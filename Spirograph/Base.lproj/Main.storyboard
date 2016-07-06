@@ -27,7 +27,6 @@
                             </slider>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CXl-xj-y9s" userLabel="Big Gear" customClass="CircleView" customModule="Spirograph" customModuleProvider="target">
                                 <rect key="frame" x="30" y="30" width="540" height="540"/>
-                                <color key="backgroundColor" red="0.54296045086882294" green="0.6056780137217127" blue="0.88228075916230364" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="CXl-xj-y9s" secondAttribute="height" multiplier="1:1" id="8Yl-mm-VMB"/>
                                     <constraint firstAttribute="width" secondItem="CXl-xj-y9s" secondAttribute="height" multiplier="1:1" id="OJp-VX-Yzm"/>

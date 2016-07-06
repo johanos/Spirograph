@@ -45,7 +45,14 @@ class ViewController: UIViewController {
         smallGear.center = oldCenter;
         smallGear.setNeedsUpdateConstraints();
         smallGear.setNeedsDisplay();
-        
+    }
+
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        for touch in touches {
+            let touchCGRect = CGRectMake(smallGear.frame.minX + smallGearContainer.frame.minX, smallGear.frame.minY + smallGearContainer.frame.minY, smallGear.frame.width, smallGear.frame.height)
+
+            print ( CGRectContainsPoint(touchCGRect, touch.locationInView(self.view)))
+        }
     }
 
 

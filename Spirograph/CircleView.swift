@@ -10,7 +10,7 @@ import UIKit
 
 class CircleView: UIView {
     var circleLayer : CAShapeLayer!
-    var backgroundColorPreset: UIColor? = UIColor.clearColor()
+    var backgroundColorPreset: UIColor? = nil //UIColor.clearColor()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
