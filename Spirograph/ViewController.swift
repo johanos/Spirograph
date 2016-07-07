@@ -107,20 +107,22 @@ class ViewController: UIViewController {
         var startPoint : CGPoint
         
         for t in  0.0.stride(to: 700, by: 0.25) {
+
+            let
             
             let R      = bigGear.circleRadius
             let r      = smallGear.circleRadius
-            let a      = Double(sqrt( pow(smallGear.center.x - point.x, 2) + pow(smallGear.center.y - point.y, 2)))
-            let deltaR = R - R
+            let a      = Double(sqrt( pow( smallGear.center.x +   - point.x , 2) + pow( smallGear.center.y  - point.y, 2)))
+            let deltaR = R - r
             let ratioR = r / R
             
             
             // x(t) = (R-r)*cos((r/R) *t) + a*cos((1-(r/R))*t)
             // y(t) = (R-r)*sin((r/R) *t) - a*sin((1-(r/R))*t)
             
-            let x      = (deltaR) * cos( (ratioR) * t) + a * cos((1 - (ratioR)) * t)
-            let y      = (deltaR) * sin( (ratioR) * t) - a * sin((1 - (ratioR)) * t)
-            startPoint = CGPoint(x: Double(bigGear.center.x) + x , y: Double(bigGear.center.y) + y)
+            let x : Double     = (deltaR) * cos( (ratioR) * t) + a * cos((1 - (ratioR)) * t)
+            let y : Double     = (deltaR) * sin( (ratioR) * t) - a * sin((1 - (ratioR)) * t)
+            startPoint = CGPoint(x: Double(smallGear.center.x + smallGearContainer.frame.origin.x) + x , y: Double(smallGear.center.y + smallGearContainer.frame.origin.y ) + y)
             path.addLineToPoint(startPoint)
             path.moveToPoint(startPoint)
             
@@ -135,33 +137,12 @@ class ViewController: UIViewController {
             for path in paths {
                 path.removeFromSuperlayer()
             }
+
+            smallGearContainer.layer.removeAnimationForKey("rotationAnimation")
             
             pointCollection.removeAll()
             
         }
     }
-    
-    func changeAnchorPointOfView(view : UIView , superView : UIView? , rotationPoint : CGPoint)
-    {
-        let oldFrame = view.frame
-        let minX   = CGRectGetMinX(view.frame)
-        let minY   = CGRectGetMinY(view.frame)
-        let width  = CGRectGetWidth(view.frame)
-        let heigth = CGRectGetHeight(view.frame)
-        let anchorPointX = ((rotationPoint.x - minX) / width)
-        let anchorPointY = ((rotationPoint.y - minY) / heigth)
-
-        let anchorPoint = CGPointMake( anchorPointX , anchorPointY )
-
-        view.layer.anchorPoint = anchorPoint
-        view.layer.frame = oldFrame
-    }
-
-    func removeAllConstraintsFromView(view :UIView){
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.removeConstraints(view.constraints)
-    }
-
-
 }
 
