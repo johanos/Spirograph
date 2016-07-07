@@ -73,6 +73,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbu-oV-HQA">
                                         <rect key="frame" x="287.5" y="0.0" width="252.5" height="30"/>
                                         <state key="normal" title="Clear"/>
+                                        <connections>
+                                            <action selector="clearButtonWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rRy-A6-Wa0"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -108,6 +111,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="bigGear" destination="CXl-xj-y9s" id="Mip-pS-XUW"/>
                         <outlet property="clearButton" destination="rbu-oV-HQA" id="A6t-TD-gkf"/>
                         <outlet property="slider" destination="8Ql-SR-3dy" id="cJ4-GF-pQm"/>
                         <outlet property="sliderLabel" destination="W8g-Th-XjL" id="MfO-tr-HcO"/>

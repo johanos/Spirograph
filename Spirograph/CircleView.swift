@@ -11,6 +11,13 @@ import UIKit
 class CircleView: UIView {
     var circleLayer : CAShapeLayer!
     var backgroundColorPreset: UIColor? = nil //UIColor.clearColor()
+    var circleRadius : Double {
+        get
+        {
+            return Double(self.bounds.height - 10)
+        }
+        
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,7 +47,7 @@ class CircleView: UIView {
     UIColor.redColor().set()
     
     // Create Circle
-    CGContextAddArc(context, (frame.size.width)/2, frame.size.height/2, (frame.size.width - 10)/2, 0.0, CGFloat(M_PI * 2.0), 1)
+    CGContextAddArc(context, (frame.size.width)/2, frame.size.height/2, (frame.size.width - 5)/2, 0.0, CGFloat(M_PI * 2.0), 1)
     
     // Draw
     CGContextStrokePath(context);
@@ -54,7 +61,7 @@ class CircleView: UIView {
         
         // Use UIBezierPath as an easy way to create the CGPath for the layer.
         // The path should be the entire circle.
-        let circlePath = UIBezierPath(arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0), radius: (frame.size.width - 10)/2, startAngle: 0.0, endAngle: CGFloat(M_PI * 2.0), clockwise: true)
+        let circlePath = UIBezierPath(arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0), radius: (frame.size.width - 5)/2, startAngle: 0.0, endAngle: CGFloat(M_PI * 2.0), clockwise: true)
         
         // Setup the CAShapeLayer with the path, colors, and line width
         circleLayer = CAShapeLayer()
